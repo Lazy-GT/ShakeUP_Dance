@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Danddaloading.css" />
+  </head>
+  <body>
+    <div>Teachable Machine Pose Model</div>
+    <button type="button" onclick="init()">Start</button>
+
+    <!-- html 추가 -->
+    <script
+      class="jsbin"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    ></script>
+    <div class="file-upload">
+      <button
+        class="file-upload-btn"
+        type="button"
+        onclick="$('.file-upload-input').trigger( 'click' )"
+      >
+        Add Video
+      </button>
+
+      <div class="video-upload-wrap">
+        <input class="file-upload-input" type="file" onchange="readURL(this);" accept="video/*" />
+        <div class="drag-text">
+          <h3>Drag and drop a file or select add Video</h3>
+        </div>
+      </div>
+      <div class="file-upload-content">
+        <video
+          id="video"
+          class="file-upload-video"
+          src="#"
+          width="300"
+          height="300"
+          controls
+          muted
+        ></video>
+        <div class="video-title-wrap">
+          <button type="button" onclick="removeUpload()" class="remove-video">
+            Remove <span class="video-title">Uploaded Video</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- html 끝 -->
+
+    <div id="model-load-container"></div>
+    <div id="label-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+    <script type="text/javascript">
+      // More API functions here:
+      // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
+
+      // the link to your model provided by Teachable Machine export panel
+      const URL = "https://teachablemachine.withgoogle.com/models/8a2i874rC/";
+      var predictVideo;
+      let model,
+        modelLoadContainer,
+        labelContainer,
+        maxPredictions,
+        checkPause,
+        checkNotLoadedVideo;
+      var video = document.getElementById("video");
+
+      async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        // Refer to tmvideo.loadFromFiles() in the API to support files from a file picker
+        // Note: the pose library adds a tmPose object to your window (window.tmPose)
+        model = await tmPose.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        // append/get elements to the DOM
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) {
+          // and class labels
+          labelContainer.appendChild(document.createElement("div"));
+        }
+
+        modelLoadContainer = document.getElementById("model-load-container");
+        modelLoadContainer.innerHTML = "모델 로딩 성공!";
+      }
+
+      async function predict() {
+        // 일시정지 버튼 클릭 시 predict 함수 리턴
+        if (checkPause) return;
+
+        console.log("predict 함수 호출");
+
+        // 영상이 로딩되지 않았을 때 return
+        // if(checkNotLoadedVideo) return;
+
+        // Prediction #1: run insput through posenet
+        // estimatePose can take in an video, video or canvas html element
+
+        const { pose, posenetOutput } = await model.estimatePose(video, false);
+        // Prediction 2: run input through teachable machine classification model
+        const prediction = await model.predict(posenetOutput);
+
+        for (let i = 0; i < maxPredictions; i++) {
+          const classPrediction =
+            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+          labelContainer.childNodes[i].innerHTML = classPrediction;
+        }
+      }
+
+      async function loop(timestamp) {
+        await predict();
+        window.requestAnimationFrame(loop);
+      }
+
+      // 비디오가 로딩 되었을 때
+      video.addEventListener("loadeddata", (event) => {
+        console.log("비디오 로딩 시작");
+        // checkNotLoadedVideo = false;
+      });
+
+      // 비디오가 끝났을 때
+      video.addEventListener("ended", (event) => {
+        console.log("비디오 end");
+        // checkNotLoadedVideo = true;
+      });
+
+      // 비디오 재생 버튼 클릭 시 호출
+      video.addEventListener("play", (event) => {
+        console.log("비디오 play");
+        checkPause = false;
+        // checkNotLoadedVideo = false;
+        predictVideo = window.requestAnimationFrame(loop);
+      });
+
+      // 비디오 일시정지 버튼 클릭 시 호출 => predict 함수 리턴
+      video.addEventListener("pause", (event) => {
+        console.log("비디오 pause");
+        checkPause = true;
+        // checkNotLoadedVideo = true;
+        window.cancelAnimationFrame(predictVideo);
+      });
+    </script>
+
+    <!-- Javascript 추가 -->
+    <script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $(".video-upload-wrap").hide();
+
+            $(".file-upload-video").attr("src", e.target.result);
+            $(".file-upload-content").show();
+
+            $(".video-title").html(input.files[0].name);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          removeUpload();
+        }
+      }
+
+      function removeUpload() {
+        $(".file-upload-input").replaceWith($(".file-upload-input").clone());
+        $(".file-upload-content").hide();
+        $(".video-upload-wrap").show();
+      }
+      $(".video-upload-wrap").bind("dragover", function () {
+        $(".video-upload-wrap").addClass("video-dropping");
+      });
+      $(".video-upload-wrap").bind("dragleave", function () {
+        $(".video-upload-wrap").removeClass("video-dropping");
+      });
+    </script>
+    <!-- Javascript 끝 -->
+  </body>
+
+  <!-- Copyright (c) 2022 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+software and associated documentation files (the "Software"), 
+to deal in the Software without restriction, including without limitation 
+the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons 
+to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included 
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE 
+OR OTHER DEALINGS IN THE SOFTWARE. -->
+</html>

@@ -1,0 +1,24 @@
+.DanddaMain {
+  display: flex;
+  flex-direction:column;
+  justify-content: 'center';
+  align-items: center;
+}
+
+.Carousel {
+  text-align: center;
+  padding: 2vh;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+}
+
+svg {
+  height: 30px;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: left;
+}

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "193531776348",
+    "project_id": "dance-704a8",
+    "storage_bucket": "dance-704a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193531776348:android:8601397ce4c5b89e854599",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193531776348-0lki6ajdp30pubhlk7ncaqm54qcvtd1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoapYqFi6BYZpTlod5rdfy05Upa9Na3K8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193531776348-0lki6ajdp30pubhlk7ncaqm54qcvtd1k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

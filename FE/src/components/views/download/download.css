@@ -1,0 +1,73 @@
+/* body {
+	background: #1c8fac;
+	height: 100%;
+} */
+.h1 {
+	font-size: 20vw;
+	top: 50%;
+	margin: 0 0 0 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	font-weight: 900;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.wrapper {
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+  background: #1c8fac;
+	margin: 0 auto;
+	height: 100%;
+}
+
+.wrapper h1 {
+		color: #39c3e5;
+}
+.wrapper h1:before {
+  content: attr(data-heading);
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 60%;
+  color: #82e2fa;
+  animation: ocean 3.5s ease-in-out forwards infinite;
+}
+    
+.wrapper h1:after {
+  content: attr(data-heading);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  overflow: hidden;
+  height: 53%;
+  color: #ffe984;
+  animation: sand 3.5s ease-in-out forwards infinite;
+}
+
+@keyframes ocean {
+	0% {
+		height: 60%;
+	}
+	50% {
+		height: 50%
+	}
+	100% {
+		height: 60%
+	}
+}
+
+@keyframes sand {
+	0% {
+		height: 53%;
+	}
+	50% {
+		height: 50%
+	}
+	100% {
+		height: 53%
+	}
+}
