@@ -17,23 +17,28 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	// 추가 부분(JPA, Lombok, MariaDB, Swagger, spring-boot-starter-web)
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'
+
+	// lombok 의존성
 	implementation('org.projectlombok:lombok')
 	annotationProcessor('org.projectlombok:lombok')
 
+	// mysql
 	implementation 'mysql:mysql-connector-java'
+	// jpa 의존성
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
-
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'
+	// mariadb 의존성
 	runtimeOnly('org.mariadb.jdbc:mariadb-java-client')
+	// swagger2 의존성
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
 	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
-	// JWT 의존성 추가
+	// JWT 의존성
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	// spring security 의존성
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 
 

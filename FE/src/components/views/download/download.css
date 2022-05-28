@@ -1,7 +1,16 @@
-/* body {
-	background: #1c8fac;
-	height: 100%;
-} */
+.body{
+	width: 100vw;
+	height: 90vh;
+}
+.bar {
+	width: 100vw;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background-color: #6200ee;
+}
 .h1 {
 	font-size: 20vw;
 	top: 50%;
@@ -12,11 +21,20 @@
 	white-space: nowrap;
 	display: inline-block;
 }
-
+.down{	
+	position: absolute;
+	top:0;
+	text-align: center;
+	display: block;
+	width: 100%;
+	font-size: 50px;
+	animation: bounce 1.25s infinite ease-in-out;
+	color: #fff;
+}
 .wrapper {
 	width: 100%;
 	font-family: 'Roboto', sans-serif;
-  background: #1c8fac;
+  background: #6200ee;
 	margin: 0 auto;
 	height: 100%;
 }
@@ -43,7 +61,7 @@
   top: 0;
   z-index: 2;
   overflow: hidden;
-  height: 53%;
+  height: 47%;
   color: #ffe984;
   animation: sand 3.5s ease-in-out forwards infinite;
 }
@@ -53,7 +71,7 @@
 		height: 60%;
 	}
 	50% {
-		height: 50%
+		height: 47%
 	}
 	100% {
 		height: 60%
@@ -65,9 +83,14 @@
 		height: 53%;
 	}
 	50% {
-		height: 50%
+		height: 47%
 	}
 	100% {
 		height: 53%
 	}
+}
+@keyframes bounce {
+	0% { top: 20%; }
+	50%   { top: 25%; }
+	100% { top: 20%; }
 }

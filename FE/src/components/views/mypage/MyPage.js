@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
   user: {
     display: 'flex',
-    flexDirection: 'column',
     justifyContent: 'flex-end',
     marginLeft: '15px'
   },
@@ -37,7 +36,7 @@ function MyPage() {
   const [user, setUser] = useState({})
   const { auth } = useContext(UserContext)
   const [following, setFollowing] = useState(false)
-
+  const userId = localStorage.getItem('UserId')
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -94,10 +93,10 @@ function MyPage() {
       <div className='user'>
         <img src={user.profile} />
         <div className={classes.user}>
-          <Typography>{user.name}</Typography>
-          <Typography>구독자수</Typography>
+          <Typography style={{fontWeight: 900}}>{user.name}</Typography>
+          <Typography>님의 마이페이지</Typography>
         </div>
-        {auth.id === id ?
+        {userId === id ?
           <></> : 
           <div className={classes.follow}>
           {following ? 

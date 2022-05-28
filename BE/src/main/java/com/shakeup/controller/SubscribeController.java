@@ -46,7 +46,7 @@ public class SubscribeController {
 
     @DeleteMapping(value = "/unfollow/{curuid}/{targetuid}")
     @Transactional
-    public ResponseEntity<?> deleteFollow(@PathVariable int curuid,@PathVariable int targetuid) {
+    public ResponseEntity<?> deleteFollow(@PathVariable int curuid, @PathVariable int targetuid) {
         Optional<Subscribe> isuser = subScribeRepository.findByCuruidAndTargetuid(curuid, targetuid);
 
         if (isuser.isPresent()) {
@@ -65,5 +65,14 @@ public class SubscribeController {
         List<FollowMapping> list = subScribeRepository.findVideoAndprofileAndName(curuid);
 
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/count/{targetuid}")
+    @ApiOperation(value = "target 유저의 uid를 통해서 구독자 수를 반환한다.")
+    public ResponseEntity<?> get(@PathVariable int targetuid) {
+
+        long follow_cnt = subScribeRepository.findCountByUid(targetuid);
+
+        return new ResponseEntity<>(follow_cnt, HttpStatus.OK);
     }
 }

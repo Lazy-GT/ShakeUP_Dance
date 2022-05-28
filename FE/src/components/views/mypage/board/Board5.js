@@ -19,7 +19,6 @@ function Board5({user}) {
         return (
           <>
             <Video data={item} key={index}/>
-            <hr/>
           </>
         );
       })}

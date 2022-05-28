@@ -26,7 +26,6 @@ function Board4({user}) {
         return (
           <>
             <Video data={item} key={index} />
-            <hr/>
           </>
         );
       })}

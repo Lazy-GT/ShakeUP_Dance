@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -147,10 +148,10 @@ public class UserController {
     }
 
     @ApiOperation(value = "회원 탈퇴", notes = "id에 해당하는 회원의 정보를 삭제한다.(그와 동시에 회원이 적은 게시글들의 id가 '탈퇴한 회원'으로 바뀐다.) 그리고 DB삭제 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") String id) {
+    @DeleteMapping("/{uid}")
+    public ResponseEntity<String> deleteUser(@PathVariable("uid") int uid) {
         logger.info("deleteUser - 호출");
-        String res = userService.deleteUser(id);
+        String res = userService.deleteUser(uid);
 
         if (res.equals("fail")) {
             return new ResponseEntity<>("계정 삭제 실패", HttpStatus.OK);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
-<!--usesCleartextTraffic에서 true로 설정하여 https뿐만이 아닌 http도 사용가능하게 함-->
+    <!--usesCleartextTraffic에서 true로 설정하여 https뿐만이 아닌 http도 사용가능하게 함-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,18 +20,29 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:hardwareAccelerated="true"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            >  <!---가로세로 변환시 리로딩 방지-->
+            android:configChanges="orientation|keyboardHidden|screenSize">  <!---가로세로 변환시 리로딩 방지-->
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="i6d103.p.ssafy.io"
+                    android:pathPrefix="/apkdownload" />
             </intent-filter>
         </activity>
         <activity
@@ -43,19 +54,22 @@
         </activity>
     </application>
     <!--네트워크 상태 퍼미션-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- 카메라 퍼미션 -->
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.location.gps" />
     <!-- 5.0 버전 파일업로드 퍼미션 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18"/>
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
     <!-- 외부 저장소 사용 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 오디오 녹음 사용 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- 외부 URL로부터 동영상을 스트리밍하기 위한 권한. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 재생중 화면 어두워짐, 잠김 방지하기 위한 권한. -->

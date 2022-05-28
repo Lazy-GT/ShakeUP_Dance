@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-// import { SidebarData, UndetbarData } from './SidebarData';
 import { Link, useNavigate } from 'react-router-dom';
 import './Sidebar.css'
-import { Avatar } from '@material-ui/core';
 import {UserContext} from '../../../App'
 import banner from './banner.png'
 
@@ -42,7 +40,7 @@ function Sidebar() {
   const loginData = [
     {
       title:'회원정보 수정',
-      path: '/user/sujeong',
+      path: '/user/update',
       icon: '',
     },
     {

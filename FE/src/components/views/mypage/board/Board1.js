@@ -2,15 +2,42 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
     },
-
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
+  box: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    padding:'20px',
+    borderRadius: '20px',
+    marginBottom: '20px',
+    boxShadow: '0px 0px 5px gray',
+    backgroundColor: '#EEEEEE',
+  },
+  video: {
+    display: 'flex',
+    borderRadius: '20px',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    margin: '10px',
+  },
+  content: {
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '20px',
+  },
+  sub: {
+    margin: '0 10px'
+  }
 }));
 
 
@@ -20,12 +47,7 @@ function Board1({id}) {
   const [bestVid, setBestVid] = useState("")
   const uid = id
 
-  // 최고 승률을 가져오기
-
   const getVideos = () => {
-    // category, uid로 video 정보 가져오기
-    // uid는 링크의 params 값을 main에서 props로 가져와야함.
-    
     const credentials = {
       category : 0,
       uid : uid
@@ -45,70 +67,52 @@ function Board1({id}) {
     .then(res => {
       setBestVid(res.data)
     })
-    .catch(err =>{
+    .catch(err => {
       console.log(err)
-    }) 
+    })
   }
 
-
+  const onGoMypage = (uid) => {
+    navigate(`/mypage/${uid}`)
+  }
 
   useEffect(() => {
     getVideos();
     getBestVid();
-  }, []);
+  }, [uid]);
 
 
   const classes = useStyles();
 
   return (
-    <div>
-    <h1>최고점 획득 댄따</h1>
-    <div className="flex-1" 
-        style={{ flexDirection:'column'}}
-        >
-          <br/>
-          <video style={{width:'100vw', height:'30vh'}} src={bestVid.url} controls/>
-          {/* <img style={{width:'100vw', height:'30vh', objectFit:'cover'}} src={bestVid.thumbnail}/> */}
-          <h3 className="name"
-          style={{textAlign:'center'}}
-          >{bestVid.title}</h3>
-         <br/> 
-        <h2 style={{textAlign:'center'}}>댄따 총 참여 회수</h2>
-        <h3 style={{textAlign:'center'}}>{videos.length}회</h3>
-        <hr/>
-        <br/>
+    <div className={classes.root}>
+      <h1 className={classes.title}>댄스 따라하기 👯‍♀️</h1>
+      <h4>총 참여 {videos.length}회</h4>
+      <h2>최근 참여 댄따</h2>
+      <div className={classes.box}>
+        <h1 className={classes.sub}>최고점 획득 댄따 🥇</h1>
+        <div className={classes.video}>
+          <video style={{objectFit:'fill', width:'100%', textAlign:'center'}} src={bestVid.url} controls/>
+        </div>
+        <h3 className={classes.sub}>{bestVid.title}</h3>
       </div>
-    <h1>최근 참여 댄따</h1>
-    <br/>
-    {videos.map((video) => {
-      return (
-      <div style={{
-          width:'60vw', 
-          display: 'flex',
-          flexDirection:'column',
-        }}>
-        {/* img는 썸네일이 이렇게 뜬다 보여주기용 */}
-
-          <video src={video.copy.url} poster={video.copy.thumbnail} style={{objectFit:'fill', width:'150px', height:'100px', marginBottom:'10px'}} controls/>
-          {/* <img src={video.copy.thumbnail} style={{objectFit:'fill', width:'150px', height:'100px', marginBottom:'10px'}} /> */}
-          <div style={{ 
-          display: 'flex',
-          flexDirection:'row',
-        }}>
-            <Avatar key={video.copyid} src={video.origin_profile} style={{marginRight:'10px'}}/>
-            <div>
-            <h4>{video.origin_name}님의</h4>
-            <h4>{video.original.title}</h4> 
-            <h4>{video.copy.title}</h4> 
-            <h4>{video.copy.score}점</h4>            
+      {videos.map((video) => {
+        return (
+          <div className={classes.box} key={video.copyid}>
+            <div className={classes.video}>
+              <video src={video.copy.url} poster={video.copy.thumbnail} style={{objectFit:'fill', width:'100%'}} controls/>
+            </div>
+            <div className={classes.content}>
+              <Avatar src={video.origin_profile} onClick={()=> onGoMypage(video.original.uid)}/>
+              <div>
+                <h4 className={classes.sub}>{video.origin_name}님의 {video.original.title}</h4>
+                <h4 className={classes.sub}>{video.copy.score}점</h4>            
+              </div>
             </div>
           </div>
-        <br/>
-      </div>
-      )
-    })}
-    <br/>
-  </div>
+        )
+      })}
+    </div>
   );
 }
 

@@ -23,7 +23,7 @@ function Vote(props) {
       .then((res) => {
         console.log(res.data);
         res.data.sort(() => Math.random() - 0.5);
-        setVideos(res.data);
+        setVideos(res.data.slice(0,8));
         setDisplays([res.data[0], res.data[1]]);
         // 노출했을 때 노출수 올라가게 요청.
         axios
@@ -90,17 +90,17 @@ function Vote(props) {
       }
     } else if (videos.length > 2) {
       setWinners([...winners, video]);
-      setDisplays([videos[1], videos[2]]); // setDisplays([videos[2], videos[3]]
+      setDisplays([videos[2], videos[3]]); // setDisplays([videos[2], videos[3]]
       // 노출했을 때 노출수 올라가게 요청.
       axios
-        .put(`/video/expose/${videos[1].vid}`)
+        .put(`/video/expose/${videos[2].vid}`)
         .then((res) => {})
         .catch((err) => {
           console.log("노출 에러[videos2], 2보다 클때");
         });
       // 노출했을 때 노출수 올라가게 요청.
       axios
-        .put(`/video/expose/${videos[2].vid}`)
+        .put(`/video/expose/${videos[3].vid}`)
         .then((res) => {})
         .catch((err) => {
           console.log("노출 에러[videos3], 2보다 클때");

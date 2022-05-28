@@ -6,16 +6,21 @@ import { deleteFile } from '../../firebase/db';
 
 const useStyles = makeStyles(() => ({
   root: {
-    // width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding:'5px'
+    padding:'10px',
+    borderRadius: '20px',
+    marginBottom: '20px',
+    boxShadow: '0px 0px 5px gray',
+    backgroundColor: '#EEEEEE',
   },
   video: {
     display: 'flex',
+    borderRadius: '20px',
     justifyContent: 'center',
-    margin: '10px'
+    overflow: 'hidden',
+    margin: '10px',
   },
   title: {
     fontWeight: '',
@@ -64,7 +69,7 @@ function Video({data, propFunction, index}) {
         <video 
           src={url} 
           controls
-          style={{objectFit:'fill', height:'200px', textAlign:'center'}}/>
+          style={{objectFit:'fill', width:'100%', textAlign:'center'}}/>
       </div>
       <div className={classes.title}>
         <h4>{title}</h4>

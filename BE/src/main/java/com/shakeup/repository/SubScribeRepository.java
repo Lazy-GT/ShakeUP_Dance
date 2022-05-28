@@ -22,4 +22,9 @@ public interface SubScribeRepository extends JpaRepository<Subscribe, Long> {
             "where s.curuid=:curuid " +
             "order by v.date DESC")
     List<FollowMapping> findVideoAndprofileAndName(@Param("curuid") int curuid);
+
+    @Query("select count(s.targetuid)" +
+            "FROM Subscribe s " +
+            "where s.targetuid=:targetuid")
+    long findCountByUid(@Param("targetuid") int targetuid);
 }

@@ -16,6 +16,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
@@ -27,6 +29,7 @@ import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
@@ -64,8 +67,9 @@ public class CAMERA2_Activity extends AppCompatActivity {
     private static final int SENSOR_ORIENTATION_INVERSE_DEGREES = 270;
     private static final SparseIntArray DEFAULT_ORIENTATIONS = new SparseIntArray();
     private static final SparseIntArray INVERSE_ORIENTATIONS = new SparseIntArray();
-    private MotiveVideoView videoview;
+    private MotiveVideoView videoView;
     private String modelUrl;
+    private String videoId;
     private String videoFileName; // 녹화 생성 파일 이름
     private static final String TAG = "Camera2VideoFragment";
     private static final int REQUEST_VIDEO_PERMISSIONS = 1;
@@ -101,7 +105,7 @@ public class CAMERA2_Activity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference videoRef = database.getReference("message");
     DatabaseReference modelRef = database.getReference("turl");
-
+    DatabaseReference vidRef = database.getReference("vid");
 
     /**
      * An {@link AutoFitTextureView} for camera preview.
@@ -224,6 +228,7 @@ public class CAMERA2_Activity extends AppCompatActivity {
     private String mNextVideoAbsolutePath;
     private File mNextVideo;
     private CaptureRequest.Builder mPreviewBuilder;
+    private int rotation;
 
     public CAMERA2_Activity() {
     }
@@ -282,7 +287,7 @@ public class CAMERA2_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera_test);
 
-        videoview=(MotiveVideoView)findViewById(R.id.videoView);
+        videoView=(MotiveVideoView)findViewById(R.id.videoView);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();   //타이틀바 숨기기
@@ -292,12 +297,13 @@ public class CAMERA2_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         videoUrl = intent.getStringExtra("동영상링크");
         modelUrl = intent.getStringExtra("모델링크");
+        videoId = intent.getStringExtra("비디오아이디");
 
         System.out.println("주소값 : " + videoUrl);
         //Video View에서 보여줄 동영상주소.
         Uri url = Uri.parse(videoUrl);
 //        System.out.println("주소값 : " + url);
-        videoview.setVideoURI(url);
+        videoView.setVideoURI(url);
 
         mTextureView = (AutoFitTextureView) findViewById(R.id.texture);
         mButtonVideo = (ImageButton) findViewById(R.id.btn_record);
@@ -305,11 +311,18 @@ public class CAMERA2_Activity extends AppCompatActivity {
             if (mIsRecordingVideo) {
                 stopRecordingVideo();
             } else {
-                videoview.start();
+                videoView.start();
                 startRecordingVideo();
             }
         });
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                stopRecordingVideo();
+            }
+        });
     }
+
 
     @Override
     public void onResume() {
@@ -557,20 +570,21 @@ public class CAMERA2_Activity extends AppCompatActivity {
         if (null == mTextureView || null == mPreviewSize ) {
             return;
         }
-        int rotation = getWindowManager().getDefaultDisplay().getRotation();
+        
         Matrix matrix = new Matrix();
         RectF viewRect = new RectF(0, 0, viewWidth, viewHeight);
         RectF bufferRect = new RectF(0, 0, mPreviewSize.getHeight(), mPreviewSize.getWidth());
         float centerX = viewRect.centerX();
         float centerY = viewRect.centerY();
-        if (Surface.ROTATION_90 == rotation || Surface.ROTATION_270 == rotation) {
+        if (Surface.ROTATION_180 == rotation || Surface.ROTATION_90 == rotation) {
             bufferRect.offset(centerX - bufferRect.centerX(), centerY - bufferRect.centerY());
-            matrix.setRectToRect(viewRect, bufferRect, Matrix.ScaleToFit.FILL);
+
+            matrix.setRectToRect(viewRect, bufferRect, Matrix.ScaleToFit.CENTER);
             float scale = Math.max(
                     (float) viewHeight / mPreviewSize.getHeight(),
                     (float) viewWidth / mPreviewSize.getWidth());
             matrix.postScale(scale, scale, centerX, centerY);
-            matrix.postRotate(90 * (rotation - 2), centerX, centerY);
+            matrix.postRotate(180 * (rotation - 2), centerX, centerY);
         }
         mTextureView.setTransform(matrix);
     }
@@ -705,6 +719,7 @@ public class CAMERA2_Activity extends AppCompatActivity {
                 System.out.println("파베_데이터 : " + videoRef);
                 videoRef.setValue(file.getLastPathSegment());
                 modelRef.setValue(modelUrl);
+                vidRef.setValue(videoId);
             }
         });
 
@@ -712,9 +727,8 @@ public class CAMERA2_Activity extends AppCompatActivity {
         mediaScanIntent.setData(Uri.fromFile(mNextVideo));
         sendBroadcast(mediaScanIntent);
 
-        Toast.makeText(CAMERA2_Activity.this, "Video saved: " + mNextVideoAbsolutePath,
-                Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "Video saved: " + mNextVideoAbsolutePath);
+//        Toast.makeText(CAMERA2_Activity.this, "Video saved: " + mNextVideoAbsolutePath, Toast.LENGTH_SHORT).show();
+//        Log.d(TAG, "Video saved: " + mNextVideoAbsolutePath);
 
 
         mNextVideoAbsolutePath = null;

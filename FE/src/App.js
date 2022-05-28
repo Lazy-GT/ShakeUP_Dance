@@ -28,6 +28,8 @@ import Worldcupparticipation from "./components/views/worldcup/Worldcupparticipa
 import VideoDetail from "./components/views/VideoDetail/VideoDetail";
 import Danddaloading from "./components/views/dandda/danddaresult/Danddaloading";
 import Download from "./components/views/download/download.jsx";
+import UserDelete from "./components/views/Signup/Unregister.jsx";
+
 
 export const UserContext = createContext();
 
@@ -73,7 +75,8 @@ function App() {
           <Route exact={true} path="/signup" element={<SignUp />} />
           <Route exact={true} path="/joinend" element={<JoinEnd />} />
           <Route exact={true} path="/signup/next" element={<SignUpNext />} />
-          <Route exact={true} path="/user/sujeong" element={<PutCredentials />} />
+          <Route exact={true} path="/user/delete" element={<UserDelete />} />
+          <Route exact={true} path="/user/update" element={<PutCredentials />} />
           <Route exact={true} path="/community/:id" element={<ArticleDetail />} />
           <Route exact={true} path="/:id" element={<DanddaResult />} />
           <Route exact={true} path="/:id/upload" element={<DanddaUpload />} />

@@ -27,7 +27,6 @@ function Board3({user}) {
         return (
           <>
             <Video key={index} data={item} propFunction={deleteVideo} index={index}/>
-            <hr/>
           </>  
           );
       })}

@@ -201,11 +201,11 @@ public class UserService implements UserDetailsService {
         return "success";
     }
 
-    public String deleteUser(String id) {
-        Optional<Users> user = userRepository.findById(id);
+    public String deleteUser(int uid) {
+        Optional<Users> user = userRepository.findByUid(uid);
 
         if (user.isPresent()) {
-            userRepository.deleteById(user.get().getUid());
+            userRepository.delete(user.get());
             return "success";
         }
         return "fail";
