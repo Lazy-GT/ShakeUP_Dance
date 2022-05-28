@@ -9,7 +9,7 @@ __Shake up 이란?__
 2. 큰 변화를 일으키다  
 
 #### 👆클릭 시 UCC 영상으로 이동!
-[![UCC 영상 보러가기](/uploads/69a458d381e41f954ef49227219e5691/ShakeUp표지.png)](https://www.youtube.com/watch?v=PecaFVn66D8)
+[![UCC 영상 보러가기](https://user-images.githubusercontent.com/38871826/154609257-d50b1ba6-b2a4-4388-b7e6-da6591041981.png)](https://www.youtube.com/watch?v=PecaFVn66D8)
 
 
 
@@ -65,11 +65,7 @@ __Shake Up__ 에서 함께 춤을 즐겨보세요!
 
 
 #### 🖼와이어프레임
-
-- [Shake_Up_와이어프레임.xd](/uploads/f54a700f6d0c57890a22386027b1d368/Shake_Up_와이어프레임.xd)  
-
   
-
    ![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/467a8747-5870-4d2a-9232-36527a2bba06/xd1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220217%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220217T174725Z&X-Amz-Expires=86400&X-Amz-Signature=60640d12e6dddac8ba7434ac1cbc959fb69ecdf119ade31d1612ae59f7e0151f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22xd1.PNG.png%22&x-id=GetObject)
 
    ![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4c361946-2b56-4fab-9af6-38dca7523a52/xd2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220217%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220217T174752Z&X-Amz-Expires=86400&X-Amz-Signature=8ec944db772d6ba64329ff909c75d8f85266fa316455faeb0d01e81ac4865183&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22xd2.PNG.png%22&x-id=GetObject)
@@ -101,13 +97,18 @@ __Shake Up__ 에서 함께 춤을 즐겨보세요!
 
 - 댄스를 따라 추고, 맞춘 동작을 확인 한 후, 결과를 볼 수 있습니다!
 
-   ![댄스](/uploads/9790435a0ebe1c3d3d23660fee528c44/댄스.gif)  ![춤_판독](/uploads/12d055e7fc177463f94f2e072338e42b/춤_판독.gif)  ![결과](/uploads/bfec61ac92cc0a1cd62ee090ac46e27e/결과.gif)
+   ![댄스](https://user-images.githubusercontent.com/38871826/154609530-6f811654-7ab4-408e-bdf0-ac45a41104a5.gif)  ![춤_판독](https://user-images.githubusercontent.com/38871826/154609671-8c993a5c-b0da-457e-8ac9-37b0a756561e.gif)  ![결과](https://user-images.githubusercontent.com/38871826/154609630-4845c510-5588-4491-85d8-5fe6f3a65bf8.gif)
+
+
+
 
 
 
 - 자신의 채널에 영상을 업로드할 수 있습니다!
 
-  ![영상_업로드](/uploads/e69ee7f40cca92ad272a470218c6083f/영상_업로드.gif)   ![마이페이지_업로드](/uploads/5d10f2782e0f85ecd013a802293db085/마이페이지_업로드.gif)
+  ![영상_업로드](https://user-images.githubusercontent.com/38871826/154609700-0a6f0de4-a83b-47ab-9b3f-202b63994e54.gif)   ![마이페이지_업로드](https://user-images.githubusercontent.com/38871826/154609705-2370fc78-2fdf-406e-b8df-a9385c31c0ca.gif)
+
+
 
 
 
@@ -123,13 +124,16 @@ __Shake Up__ 에서 함께 춤을 즐겨보세요!
 
 - 월드컵에 참여하고, 랭킹을 볼 수 있어요!
 
-  ![월드컵_참여](/uploads/8e51a51f616f7c6f89487af7e432fdf0/월드컵_참여.gif)  ![월드컵_랭킹](/uploads/dcb6e7c0fe552deb3865071ea695a3d0/월드컵_랭킹.gif)
+  ![월드컵_참여](https://user-images.githubusercontent.com/38871826/154609723-3ef8dd3a-01dc-49f5-a5f4-f40193165da6.gif)  ![월드컵_랭킹](https://user-images.githubusercontent.com/38871826/154609731-5753082f-5d82-42fb-b437-6d6eb0785d18.gif)
+
+
 
 
 
 - 월드컵에 투표하고 결과를 볼 수 있어요!
 
-    ![월드컵_투표](/uploads/6e832a828191cdf4e7d7c646e64c9e0b/월드컵_투표.gif)
+    ![월드컵_투표](https://user-images.githubusercontent.com/38871826/154609745-31f0a9ff-616f-468c-81c7-fbc765d9f38e.gif)
+
 
 
 
@@ -142,19 +146,23 @@ __Shake Up__ 에서 함께 춤을 즐겨보세요!
 
 - 댄따 참여 영상 목록, 댄스 월드컵에 참여한 자신의 영상 목록을 볼 수 있어요!
 
-   ![마이페이지_댄따](/uploads/e7f6cbb76712439317c2e224688c9cbe/마이페이지_댄따.gif)  ![마이페이지_월드컵](/uploads/f229ec88ed4a342a6b164c1c1952a723/마이페이지_월드컵.gif)
+   ![마이페이지_댄따](https://user-images.githubusercontent.com/38871826/154609797-217f9dae-b45e-4a5c-a4b9-589ff18bd354.gif)  ![마이페이지_월드컵](https://user-images.githubusercontent.com/38871826/154609800-96701d97-9839-4111-a279-5e7bbbdc3861.gif)
+
+
 
 
 
 - 업로드한 영상 목록, 구독한 사람의 영상 목록을 볼 수 있어요!
 
-  ![마이페이지_업로드](/uploads/39b8dd51f2c340a863c94fc4a09aed41/마이페이지_업로드.gif)  ![마이페이지_구독](/uploads/392707a4de996d3661aa92290cf0e02c/마이페이지_구독.gif)
+  ![마이페이지_업로드](https://user-images.githubusercontent.com/38871826/154609821-ef27c995-0104-459c-ac80-92ed7100cd0b.gif)  ![마이페이지_구독](https://user-images.githubusercontent.com/38871826/154609825-43cdd579-21ff-488a-972f-a56a7cf6f714.gif)
+
+
 
 
 
 #### 👀시연 시나리오
 
-- [시연 시나리오](https://lab.ssafy.com/s06-webmobile2-sub2/S06P12D103/-/blob/develop/exec/%EC%8B%9C%EC%97%B0%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A4.md)
+- [시연 시나리오](https://github.com/developerDaeun/shakeup/blob/main/exec/%EC%8B%9C%EC%97%B0%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A4.md)
 
 
 
@@ -198,7 +206,7 @@ __Shake Up__ 에서 함께 춤을 즐겨보세요!
 
 ## 🌈서비스 아키텍처
 
-![image-20220217230001134](/uploads/033443c62b124525e8da484f76947b51/image-20220217230001134.png)
+![image](https://user-images.githubusercontent.com/38871826/154609961-fbdad059-1f99-4954-ac19-3152faf3d2d3.png)
 
 
 
@@ -212,7 +220,7 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
 또한, Frontend에서 사용한 React.js는 Nginx를 사용하여 배포하고, Backend는 Build하여 나온 jar 파일을 nohup 명령어를 사용하여 백그라운드에서 실행하고 배포되도록 하였습니다.
 
-- [배포 방법 보기](https://lab.ssafy.com/s06-webmobile2-sub2/S06P12D103/-/blob/develop/exec/AWS%EB%B0%B0%ED%8F%AC%EB%B0%A9%EB%B2%95.md)
+- [배포 방법 보기](https://github.com/developerDaeun/shakeup/blob/main/exec/AWS%EB%B0%B0%ED%8F%AC%EB%B0%A9%EB%B2%95.md)
 
 
 
@@ -222,7 +230,7 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
 #### Tensorflow.js
 
-- Pose Detection을 통한 춤 동작 인식
+- PoseNet을 통한 춤 동작 인식
 
   - [PoseNet 이란?](https://www.notion.so/PoseNet-c87bc00c193e4d31adff76945af9a36f)
 
@@ -310,19 +318,19 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
  #### Backlog
 
-<!-- ![image-20220218020858128](/uploads/b86f8e388d5136ccbb2ac1f05637517b/image-20220218020858128.png) -->
+![image](https://user-images.githubusercontent.com/38871826/154611303-35247974-1302-4738-8e19-2b624fa63860.png)
 
 
 
 #### Active Sprints
 
- <!-- ![image-20220218020607121](/uploads/335a6a379c4bc6d8f61790e8f40166e2/image-20220218020607121.png) -->
+![image](https://user-images.githubusercontent.com/38871826/154611346-059a4c8b-cd47-4219-8954-a0d4a9e2bffd.png)
 
 
 
 #### Burndown Chart
 
-<!-- ![image-20220218022001224](/uploads/e57f5ae7d1453c3d8db6c8c8208a1e69/image-20220218022001224.png) -->
+![image](https://user-images.githubusercontent.com/38871826/154611372-0786af56-e022-4329-89fb-7b71be49ea80.png)
 
 
 
@@ -332,7 +340,7 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
   
 
-  ![image-20220218022910131](/uploads/c0f369f07c3c6ca429e4c713447f68c4/image-20220218022910131.png)
+  ![image](https://user-images.githubusercontent.com/38871826/154611395-b3dfae41-393d-407c-bd4c-95652c34510d.png)
 
 
 
@@ -342,7 +350,7 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
   
 
-  ![image-20220218023123208](/uploads/a2215bdbf19e440bb4faa554d1f6d2ae/image-20220218023123208.png)
+  ![image](https://user-images.githubusercontent.com/38871826/154611406-ed8c18ab-bc86-41af-bc08-01782b501ef9.png)
 
 
 
@@ -352,7 +360,7 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
   
 
-  <!-- ![image-20220218024317812](/uploads/952ed5944d9e3e7c0fa8c98bc26d7be2/image-20220218024317812.png) -->
+  ![image](https://user-images.githubusercontent.com/38871826/154611423-7bcb63b3-307f-48c0-b860-7994304d851f.png)
 
 
 
@@ -362,7 +370,7 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
   
 
-  <!-- ![image-20220218023915856](/uploads/499d42d4284b4fb2fce22cdf8480e6fd/image-20220218023915856.png) -->
+  ![image](https://user-images.githubusercontent.com/38871826/154611440-c1389ba6-dc66-40b8-803b-fce88f6cfeca.png)
 
 
 
@@ -372,7 +380,7 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
   
 
-  ![image-20220218024630294](/uploads/10a78f85cf243ae53fa22b3b151b1aea/image-20220218024630294.png)
+  ![image](https://user-images.githubusercontent.com/38871826/154611451-9a8db929-f860-4a8a-bd0e-b8064bc607d8.png)
 
 
 
@@ -380,12 +388,7 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
 ## 🌈ERD
 
-- [ShakeUp_DB_Dump.sql](/uploads/c4b9eb925c747daf279c7b3efe317cfd/ShakeUp_DB_Dump.sql)
-
-  
-
-    ![ERD](/uploads/092605dcb8dc362da069c9c7c33e25c8/ERD.png)
-
+  ![ERD](https://user-images.githubusercontent.com/38871826/154611776-d4737840-7a62-41b6-8b1d-fa83bf2ad600.png)
 
 
 
@@ -404,6 +407,12 @@ Gitlab Webhook을 설정하여 Jenkins의 **Gitlab trigger를 설정하였고,**
 
 
 ## 👬팀원 소개
+
+#### Who are we? ####
+
+`SSAFY 6기 구미 1반 3팀`
+
+
 
 __김다은__ 👑팀장
 
@@ -511,9 +520,8 @@ __최성석__
 [Shake Up 웹사이트](http://i6d103.p.ssafy.io/)
 
 
-<!-- ## 발표 자료
-[PPT](/uploads/95e16b0b4fb3d8b5f1715f1eb2cbdd9f/0218_최종_발표.pptx)
-[PDF](/uploads/654a91e4430e86bdc1f7e52a817f4065/공통PJT_구미_1반_3팀_최종발표.pdf) -->
+## 발표 자료
+[PDF](https://github.com/developerDaeun/shakeup/blob/main/%EA%B5%AC%EB%AF%B8_1%EB%B0%98_D103_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)
 
 
 ## 📌문의
